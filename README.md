@@ -62,9 +62,10 @@ The SAFE-MCP framework defines 14 tactics that align with the MITRE ATT&CK metho
 | ATK-TA0002 | Execution | SAFE-T1103 | Fake Tool Invocation (Function Spoofing) | Adversary forges JSON that mimics an MCP function-call message, tricking the host into running a tool that was never offered |
 | ATK-TA0002 | Execution | [SAFE-T1104](techniques/SAFE-T1104/README.md) | Over-Privileged Tool Abuse | Legit tool (e.g. "Shell") runs with broader OS rights than necessary; LLM can be induced to perform arbitrary commands |
 | ATK-TA0002 | Execution | [SAFE-T1105](techniques/SAFE-T1105/README.md) | Path Traversal via File Tool | File-handling tool accepts relative paths like ../../secret.key; attacker leaks host secrets |
-| ATK-TA0002 | Execution | SAFE-T1106 | Autonomous Loop Exploit | Craft prompts that push an agent into infinite "self-invoke" loop to exhaust CPU or hit rate limits (DoS) |
+| ATK-TA0002 | Execution | [SAFE-T1106](techniques/SAFE-T1106/README.md) | Autonomous Loop Exploit | Craft prompts that push an agent into infinite "self-invoke" loop to exhaust CPU or hit rate limits (DoS) |
 | ATK-TA0002 | Execution | [SAFE-T1109](techniques/SAFE-T1109/README.md) | Debugging Tool Exploitation | Browser-based remote code execution via vulnerable MCP Inspector (CVE-2025-49596) |
-| **ATK-TA0003** | **Persistence** | SAFE-T1201 | MCP Rug Pull Attack | Time-delayed malicious tool definition changes after initial approval |
+| ATK-TA0002 | Execution | [SAFE-T1110](techniques/SAFE-T1110/README.md) | Multimodal Prompt Injection via Images/Audio | Embedding malicious instructions within image or audio content to manipulate multimodal AI behavior |
+| **ATK-TA0003** | **Persistence** | [SAFE-T1201](techniques/SAFE-T1201/README.md) | MCP Rug Pull Attack | Time-delayed malicious tool definition changes after initial approval |
 | ATK-TA0003 | Persistence | SAFE-T1202 | OAuth Token Persistence | Theft and reuse of OAuth access/refresh tokens for persistent access to MCP-connected services, including replay of refresh tokens after legitimate client sessions end |
 | ATK-TA0003 | Persistence | SAFE-T1203 | Backdoored Server Binary | Inserts cron job or reverse shell on install; persists even if MCP service is uninstalled |
 | ATK-TA0003 | Persistence | SAFE-T1204 | Context Memory Implant | Malicious agent writes itself into long-term vector store; re-loaded in every future session |
@@ -74,7 +75,7 @@ The SAFE-MCP framework defines 14 tactics that align with the MITRE ATT&CK metho
 | **ATK-TA0004** | **Privilege Escalation** | SAFE-T1301 | Cross-Server Tool Shadowing | Malicious MCP servers override legitimate tool calls to gain elevated privileges |
 | ATK-TA0004 | Privilege Escalation | SAFE-T1302 | High-Privilege Tool Abuse | Invoke a VM-level or root tool from normal user context |
 | ATK-TA0004 | Privilege Escalation | SAFE-T1303 | Sandbox Escape via Server Exec | Exploit vulnerable server to break container/seccomp isolation |
-| ATK-TA0004 | Privilege Escalation | SAFE-T1304 | Credential Relay Chain | Use one tool to steal tokens, feed them to second tool with higher privileges |
+| ATK-TA0004 | Privilege Escalation | [SAFE-T1304](techniques/SAFE-T1304/README.md) | Credential Relay Chain | Use one tool to steal tokens, feed them to second tool with higher privileges |
 | ATK-TA0004 | Privilege Escalation | SAFE-T1305 | Host OS Priv-Esc (RCE) | Achieve root via misconfigured service running as root, then alter host |
 | ATK-TA0004 | Privilege Escalation | SAFE-T1306 | Rogue Authorization Server | Malicious MCP server redirects OAuth flows to attacker-controlled AS that ignores audience restrictions and Proof of Possession (PoP), minting overly-permissive "super-tokens" with expanded scopes |
 | ATK-TA0004 | Privilege Escalation | SAFE-T1307 | Confused Deputy Attack | MCP server receives token for one user (Alice) and forwards it to another user's (Bob) MCP instance, allowing Bob to perform actions as Alice by exploiting the server's trusted position |
@@ -130,8 +131,8 @@ The SAFE-MCP framework defines 14 tactics that align with the MITRE ATT&CK metho
 ## Summary Statistics
 
 - **Total Tactics**: 14
-- **Total Techniques**: 77
-- **Average Techniques per Tactic**: 5.5
+- **Total Techniques**: 78
+- **Average Techniques per Tactic**: 5.6
 
 ## Tactic Distribution
 
@@ -140,7 +141,7 @@ The SAFE-MCP framework defines 14 tactics that align with the MITRE ATT&CK metho
 | Reconnaissance | 0 |
 | Resource Development | 0 |
 | Initial Access | 8 |
-| Execution | 7 |
+| Execution | 8 |
 | Persistence | 7 |
 | Privilege Escalation | 8 |
 | Defense Evasion | 8 |
